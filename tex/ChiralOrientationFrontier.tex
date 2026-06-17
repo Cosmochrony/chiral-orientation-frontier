@@ -5,45 +5,336 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathtools}
 \usepackage[hidelinks]{hyperref}
 \usepackage{doi}
 
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem{hypothesis}{Hypothesis}
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
+\newtheorem*{status}{Status}
 
-\title{
-  TODO Title
-}
+\newcommand{\Zq}{\mathbb{Z}/q\mathbb{Z}}
+\newcommand{\zq}{\zeta_q}
+\newcommand{\dac}{\Delta A_c}
+\newcommand{\rhochi}{\rho_\chi}
+\newcommand{\thmax}{\theta_{\max}}
+\newcommand{\JPi}{J_\Pi}
+\newcommand{\Rmix}{R_{\mathrm{mix}}}
+\newcommand{\NA}{N_A}
+\newcommand{\EPi}{E_\Pi}
+\newcommand{\PiS}{\Pi_S}
+\newcommand{\sgn}{\operatorname{sign}}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\twobar}{\bar{\mathbf{2}}}
+\newcommand{\Horient}{[\mathrm{H\text{-}orient}]}
 
-\author{J. Beau\\
-Independent Researcher, France\\
+\title{Chiral Orientation of the Directed Heisenberg Frontier}
+\author{J\'er\^ome Beau\\
+Independent Researcher\\
 \texttt{jerome.beau@cosmochrony.org}}
-
 \date{2026}
 
 \begin{document}
   \maketitle
 
   \begin{abstract}
-    TODO Abstract.
+    The angular generation split of the projected Dirac residue $\EPi$ is carried, on the directed Heisenberg
+    frontier, by a chirally dressed cocycle signal $\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,\dac\rangle_{\partial^+}$.
+    The raw cocycle average and the maximal-locking bound $\thmax$ are computable from the arithmetic backend, but the
+    signal itself depends on the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift and not in the
+    arithmetic frontier.
+    We prove that $\sigma_L$ cannot be any function of the real cascade generator $T(e)$: edge inversion and the residual
+    reflection $\varphi$ both act as $T\mapsto -T$, so every $f(T)$ has identical arrow-parity and $\varphi$-parity,
+    whereas $\sigma_L$ must be arrow-even and $\varphi$-odd.
+    The resolution is that $\sigma_L$ is the Weyl representation type, $\two$ versus $\twobar$: group inversion preserves
+    the representation (arrow-even) while complex conjugation exchanges it ($\varphi$-odd).
+    In the inherited Heisenberg central-phase lift the chiral phase is the linear cyclotomic character
+    $\omega_\chi(e)=\zq^{\dac(e)}$, with no Gauss, Maslov, or $\sqrt{5}$ component; on the nonzero-cocycle support the
+    natural branch satisfies $\sigma_L(e)=\sgn \Im\,\zq^{\dac(e)} = \sgn\dac(e)$, giving $\rhochi = 1$ and
+    $\NA = \thmax \neq 0$.
+    This establishes $\Horient$ in the inherited Heisenberg central-phase lift, not unconditionally: the only remaining
+    obstruction is an additional spin-Galois phase outside the central character, in particular a $\sqrt{5}$ or
+    ADE-spin factor orthogonal to $\zq$.
+    The result is a conditional derivation of the frontier amplitude datum; it does not derive $u\neq 0$, which still
+    requires the Schur transport of the polarisation onto the $\JPi$-odd generation sector.
   \end{abstract}
 
-  \noindent\textbf{Keywords:}
-  TODO keywords.
+  \noindent\textbf{Keywords:} directed Heisenberg frontier; chiral orientation; Weil representation type; metaplectic
+  central character; generation split; Schur complement; arithmetic orthogonality; epistemic stratification.
 
+  \newpage
+  \tableofcontents
+
+  \newpage
   \section{Introduction}
-    \label{sec:intro}
 
-    TODO
+    The projected Dirac residue admits the Schur-complement form $\EPi = -M^\dagger M$, and the inter-generation mass
+    split is the $J_3$-odd asymmetry of $\EPi^2$ on the gauge-singlet generation factor $\mathbb{C}^3_{\mathrm{gen}}
+  \cong \mathrm{Sym}^2(V)$~\cite{Beau2026prs}.
+    The oriented-frontier diagnostic of the recursive $Q11$ model reduces the angular part of this split to a single
+    observable on the directed Cayley graph of $\mathrm{Heis}_3(\Zq)$~\cite{Beau2026q11of}.
+    That diagnostic returns two computable quantities and one missing datum.
+    The raw directed cocycle average vanishes,
+    \begin{equation}
+      \langle \dac \rangle_{\partial^+} = 0,
+    \end{equation}
+    because the residual reflection $\varphi$ pairs the outgoing frontier with itself and sends $\dac\mapsto -\dac$.
+    The maximal-locking bound,
+    \begin{equation}
+      \thmax = \Big\langle \tfrac{2\pi}{q}\,|\dac| \Big\rangle_{\partial^+},
+    \end{equation}
+    is also computable and is stable under $q$.
+    The signal that would turn the bound into an amplitude,
+    \begin{equation}
+      \Theta_\chi = \Big\langle \sigma_L\,\tfrac{2\pi}{q}\,\dac \Big\rangle_{\partial^+},
+      \qquad |\Theta_\chi| \le \thmax,
+    \end{equation}
+    requires the chiral weight $\sigma_L(e)\in\{\pm 1\}$.
+    The frontier backend does not supply $\sigma_L$: it is the surviving stub of the Lorentzian chiral lift, and the
+    question $\Horient$ is whether $\sigma_L$ is non-orthogonal to $\sgn\dac$ on the outgoing frontier,
+    \begin{equation}
+      \rhochi = \frac{\langle \sigma_L\,\dac\rangle_{\partial^+}}{\langle |\dac|\rangle_{\partial^+}}\neq 0.
+    \end{equation}
 
-  \bibliographystyle{plain}
-  \bibliography{cosmochrony-bibliography}
+    A numerical diagnostic in the inherited backend confirms the two computable quantities directly: with the campaign
+    generators $\{\pm X,\pm Y\}$ of~\cite{Beau2026a16}, the raw average is exactly zero, the symmetrised anti-bias control
+    is exactly zero, and $\thmax\cdot q$ is $q$-invariant, with the same value at $q\in\{61,101\}$.
+    This validates the backend and the bound, but says nothing about $\sigma_L$.
+    The present note derives $\sigma_L$ from the inherited lift and thereby converts the bound into a signal under a
+    precisely named phase hypothesis.
+
+    The discipline of the programme is respected throughout: no positive frontier run is read as a proof of $u\neq 0$.
+    Every claim below carries an explicit status among \emph{proved}, \emph{structural}, \emph{conditional}, and
+    \emph{open}.
+
+  \section{Problem statement: $T(e)$ cannot define $\sigma_L$}
+
+    The required parities are fixed by the oriented-frontier observable~\cite{Beau2026q11of}.
+    Under the residual reflection $\varphi = R_b\circ\JPi$ one has $\dac\circ\varphi = -\dac$ and $\gamma_5\circ\varphi =
+  -\gamma_5$, so the dressed signal $\gamma_5\dac$ is $\varphi$-even and survives the re-pairing that kills the raw
+    cocycle.
+    Under cascade reversal the cocycle is arrow-odd, $\dac(e^{-1}) = -\dac(e)$, so the reversal control
+    $\Theta_\chi^{(\partial^+)^{-1}} = -\Theta_\chi^{\partial^+}$ holds only if the chiral weight is transported rather than
+    recomputed.
+    The admissible $\sigma_L$ must therefore satisfy
+    \begin{equation}
+      \sigma_L\circ\varphi = -\sigma_L \quad(\varphi\text{-odd}),
+      \qquad
+      \sigma_L(e^{-1}) = \sigma_L(e) \quad(\text{arrow-even}).
+    \end{equation}
+    By contrast $\sgn\dac$ is $\varphi$-odd and arrow-odd; the global identification $\sigma_L = \sgn\dac$ on all directed
+    edges is therefore excluded, since it makes $\sigma_L$ arrow-odd and breaks the reversal control.
+
+  \section{The $2\times 2$ obstruction}
+
+    On the outer doublet $\{e_+,e_-\}$ of the $\JPi$-odd sector~\cite[Prop.~6.3]{Beau2026q14}, with the identifications
+    \begin{equation}
+      J_3 = \gamma_5 = \sigma_3,\qquad
+      \JPi = \sigma_1 K \ (\text{antiunitary}),\qquad
+      \Rmix = \begin{pmatrix}0 & 1\\ -1 & 0\end{pmatrix} = i\sigma_2,
+    \end{equation}
+    the $\JPi$-odd projection of the cascade generator is
+    \begin{equation}
+      T(e) = \alpha(e)\,\sigma_3 + \mu(e)\,i\sigma_2
+      = \begin{pmatrix}\alpha & \mu\\ -\mu & -\alpha\end{pmatrix},
+      \qquad \lambda_\pm = \pm\sqrt{\alpha^2-\mu^2},
+    \end{equation}
+    where $\alpha$ is the real-split coefficient produced by the order $[X,Y]=Z$ and $\mu$ is the mixing
+    coefficient~\cite[Prop.~6.5]{Beau2026q14}.
+    The conjugations $\JPi\sigma_3\JPi^{-1} = -\sigma_3$ and $\JPi(i\sigma_2)\JPi^{-1} = -i\sigma_2$ give $\JPi T
+  \JPi^{-1} = -T$, so $T$ is $\JPi$-odd.
+
+    \begin{lemma}[Parity collapse]
+Let $U(e)$ be the lift of the oriented edge with $T(e) = \log U(e)$ restricted to the doublet.
+Edge inversion $U(e^{-1}) = U(e)^{-1}$ gives $T(e^{-1}) = -T(e)$, and the residual reflection gives $T(\varphi e) =
+\varphi T(e)\varphi^{-1} = -T(e)$.
+Hence both operations act as $(\alpha,\mu)\mapsto(-\alpha,-\mu)$, and every function $f(T)$ has identical
+arrow-parity and $\varphi$-parity.
+    \end{lemma}
+
+    \begin{proof}
+      $U(e^{-1}) = U(e)^{-1} = \exp(-T(e))$ yields $T(e^{-1}) = -T(e)$.
+      $T$ is $\JPi$-odd and $R_b$ is scalar on the chiral carrier~\cite{Beau2026q11of}, so $\varphi T\varphi^{-1} = -T$ and
+      $T(\varphi e) = -T(e)$.
+      A function $f(T)$ that is invariant (resp.\ anti-invariant) under $T\mapsto -T$ is therefore even (resp.\ odd) under
+      both arrow inversion and $\varphi$ simultaneously.
+    \end{proof}
+
+    \begin{theorem}[$\sigma_L$ is not a function of $T(e)$]
+There is no function $f$ such that $\sigma_L = f(T(e))$ realises the admissible parities, because the admissible
+$\sigma_L$ is arrow-even and $\varphi$-odd, while every $f(T)$ has equal arrow- and $\varphi$-parities.
+    \end{theorem}
+
+    \begin{status}\textbf{Proved.}\end{status}
+
+    The spectral branch confirms the obstruction explicitly.
+    The projector onto the positive eigenline $v_+\propto(\mu,\ \lambda_+-\alpha)$ gives
+    \begin{equation}
+      \operatorname{Tr}(\gamma_5 P_{v_+})
+      = \frac{\mu^2 - (\lambda_+-\alpha)^2}{\mu^2 + (\lambda_+-\alpha)^2}
+      = \frac{\lambda_+}{\alpha}
+      = \sgn(\alpha)\sqrt{1 - \mu^2/\alpha^2},
+    \end{equation}
+    whose sign is $\sgn(\alpha)$, hence arrow-odd for every value of $\mu$.
+    Under the complexification $\mathrm{mp}(2,\mathbb{R})_{\mathbb{C}}\simeq\mathfrak{sl}_2(\mathbb{C})$ the real Cartan
+    $J_3$ is the non-compact boost, so the spectral branch is exactly the boost sign, which is the excluded choice.
+
+  \section{Representation-type resolution}
+
+    The carrier $V$ is the Weyl spinor of $\mathfrak{sl}_2(\mathbb{C})$, with the fundamental $\two$ ($L$) and its complex
+    conjugate $\twobar$ ($R$); the generation factor is $\mathrm{Sym}^2(V)$, so $e_+ = L\otimes L$ and $e_- = R\otimes
+  R$~\cite[\S 6]{Beau2026q14}.
+    The lift acts on $e_+$ by $U\otimes U$ and on $e_-$ by $\bar U\otimes\bar U$.
+    The chiral weight is the representation type carried by the edge,
+    \begin{equation}
+      \sigma_L(e) = (\text{Weyl representation type of the lift of } e)\in\{+1\ (\two),\ -1\ (\twobar)\}.
+    \end{equation}
+
+    \begin{proposition}[Correct parities of the representation type]
+Group inversion preserves the representation type, $\sigma_L(e^{-1}) = \sigma_L(e)$ (arrow-even), because $U^{-1}$ lies
+in the same representation as $U$.
+Complex conjugation exchanges $\two\leftrightarrow\twobar$, $\sigma_L(\varphi e) = -\sigma_L(e)$ ($\varphi$-odd),
+because $\varphi$ contains the antiunitary $\JPi$.
+    \end{proposition}
+
+    \begin{status}\textbf{Structural.}\end{status}
+
+    This is consistent with the real symplectic model.
+    For a real lift $U\in\mathrm{SL}(2,\mathbb{R})$ one has $\two\cong\twobar$ (the representation is self-conjugate), so
+    the chiral distinction collapses and $\sigma_L = 0$, matching the chiral symmetry of the real cascade in
+    which $\mu = 0$~\cite[Rem.~6.4]{Beau2026q14}.
+    The representation type is the unique label distinguished by complex conjugation, which is precisely the operation
+    separating $\varphi$ from arrow inversion; this is why it can carry opposite parities under the two.
+
+  \section{The inherited central cyclotomic phase}
+
+    In the Schr\"odinger--Heisenberg convention of the exact Weil-block construction~\cite{Beau2026a16}, the lift acts as
+    \begin{equation}
+      \rho_c(a,b,\gamma)\,f(x) = \zq^{\,c(\gamma + b(x-a))}\,f(x-a),
+      \qquad \zq = e^{2\pi i/q},
+    \end{equation}
+    with central character $\zq^{\,c\gamma}$.
+    The central increment of an oriented edge is the Heisenberg cocycle, so the edge phase is the linear cyclotomic
+    character
+    \begin{equation}
+      \omega_\chi(e) = \zq^{\,c\,a(g)\,s_b} = \zq^{\,\dac(e)}.
+    \end{equation}
+    The two chiral branches carry the conjugate central characters $c$ and $q-c$, which is exactly the parity
+    $c\leftrightarrow q-c$ realised by $\JPi$~\cite[\S 6]{Beau2026q14}.
+
+    \begin{proposition}[Arithmetic nature of the inherited phase]
+In this convention the edge phase is purely linear in the cocycle: the recovered exponent equals $c\,a(g)\,s_b$ with
+no quadratic residue, and $|\omega_\chi(e)| = 1$ on every edge.
+There is therefore no Gauss sum $\sqrt{q}$, no Maslov quadratic character, and no $\sqrt{5}$ amplitude in the
+inherited phase.
+    \end{proposition}
+
+    \begin{status}\textbf{Proved within the inherited central cyclotomic phase convention.}
+      Verified directly on the campaign backend by exponent recovery and by termwise unit modulus.\end{status}
+
+    The absence of a Fourier or Weyl generator in the Schr\"odinger--Heisenberg pipeline is the structural reason no
+    metaplectic Gauss phase appears: the lift is a product of Heisenberg translations and modulations, whose only phase is
+    the inherited central character.
+
+  \section{Frontier overlap and the conditional signal}
+
+    On the nonzero-cocycle support the natural branch of the inherited phase, selected by the sign of its imaginary part
+    at the radially outgoing representative, satisfies
+    \begin{equation}
+      \sigma_L(e) = \sgn\,\Im\,\zq^{\,\dac(e)} = \sgn \dac(e),
+    \end{equation}
+    since for a centred residue $r\in(-q/2,q/2)$ one has $\sgn\sin(2\pi r/q) = \sgn r$.
+    This $\sigma_L$ is a function of the unoriented edge class, with the canonical radial cascade orientation fixing the
+    representative, hence arrow-even; the conjugation that flips the area on $\varphi e$ makes it $\varphi$-odd.
+    The normalised overlap is then
+    \begin{equation}
+      \rhochi = \frac{\langle \sigma_L\,\dac\rangle_{\partial^+}}{\langle |\dac|\rangle_{\partial^+}} = +1,
+    \end{equation}
+    and, restricted to the cocycle support, the locking is maximal.
+
+    \begin{theorem}[Conditional orientation theorem]
+In the inherited Heisenberg central-phase lift, the chiral weight $\sigma_L$ equals $\sgn\dac$ on the nonzero-cocycle
+support of the outgoing frontier, transported arrow-even as a function of the unoriented edge.
+Consequently
+\begin{equation}
+  \omega_\chi(e) = \zq^{\,\dac(e)}
+  \;\Longrightarrow\;
+  \rhochi = 1
+  \;\Longrightarrow\;
+  \Horient
+  \;\Longrightarrow\;
+  \NA = \thmax \neq 0,
+\end{equation}
+in this lift.
+The bound $\thmax$ is thereby promoted to a nonzero signal under the named phase hypothesis.
+    \end{theorem}
+
+    \begin{status}\textbf{Proved within the inherited central cyclotomic phase convention.}
+      The overlap $\rhochi = 1$ is $q$-invariant on the verified range $q\in\{61,101,151\}$; the support fraction of the
+      cocycle is itself $q$-invariant.\end{status}
+
+    The reading is deliberately conservative: the campaign run validated the backend and the bound; the analysis of the
+    inherited lift, and only that, converts the bound into a signal.
+    No step infers $\NA\neq 0$ from a positive run.
+
+  \section{Residual caveat: the spin-Galois phase}
+
+    The result above is the phase inherited from the Heisenberg central character, which is the phase carried by the
+    radial capacity pipeline~\cite{Beau2026a16}.
+    The full Lorentzian spin-lift, with a genuine $\mathrm{SL}(2,\mathbb{C})$ factor and the ADE-spin structure carrying
+    $\sqrt{5}$, is not present in this pipeline.
+    If the chiral sector carried an additional phase beyond the inherited central character, the dichotomy would reopen.
+
+    \begin{remark}[The orthogonality alternative]
+Should the chiral branch acquire a phase in a Galois factor orthogonal to $\zq$, in particular a $\sqrt{5}$ or
+ADE-spin factor, then $\langle\sigma_L\,\sgn\dac\rangle_{\partial^+}$ could vanish by character orthogonality, yielding
+a clean no-go of the same type as the arithmetic obstruction governing the ADE case selection of the generation
+gate~\cite{Beau2026q14}.
+In that case the signal would exist operationally while the frontier amplitude vanished.
+    \end{remark}
+
+    \begin{status}\textbf{Open.}
+      Whether the chiral spin-lift carries only the inherited central character, or an additional spin-Galois phase, is the
+      single remaining obstruction; it is analytical and lies outside the present backend.\end{status}
+
+  \section{Relation to the Schur transport}
+
+    The conditional orientation theorem fixes the frontier amplitude datum $\NA$, the normalisation entering the angular
+    generation split~\cite{Beau2026q11of,Beau2026bim}.
+    It does not, by itself, establish the polarisation transport that opens the mass split.
+    The split lives in the projected Dirac residue through the Schur complement, and its $\JPi$-odd component on the
+    generation sector is
+    \begin{equation}
+      \PiS\, D\,(\partial_s P|_0)\, D\,\PiS^{*}\Big|_{\mathrm{gen},\,\JPi\text{-odd}} \neq 0,
+    \end{equation}
+    which is a distinct statement on the same chiral object~\cite{Beau2026prs}.
+    The two stages are sequential: $\Horient$ promotes the bound to a signal $\NA\neq 0$, and the Schur transport then
+    promotes the signal to the spectral split $u\neq 0$ within the stratigraphic mass hierarchy~\cite{Beau2026a4}.
+
+    \begin{status}\textbf{Not derived here; requires Schur transport.}\end{status}
+
+  \section{Status summary}
+
+    \begin{itemize}
+      \item $\sigma_L \neq f(T(e))$: \textbf{proved}.
+      \item $\sigma_L = $ Weyl representation type ($\two$ versus $\twobar$): \textbf{structural}.
+      \item $\omega_\chi(e) = \zq^{\,\dac(e)}$ linear, no Gauss / Maslov / $\sqrt{5}$ component:
+      \textbf{proved within the inherited central cyclotomic phase convention}.
+      \item $\rhochi = 1$ on the cocycle support, hence $\NA = \thmax \neq 0$:
+      \textbf{proved within the inherited central cyclotomic phase convention}.
+      \item Absence of an additional spin-Galois phase: \textbf{open}.
+      \item $u \neq 0$: \textbf{not derived here; requires Schur transport}.
+    \end{itemize}
+
+    The qualitative segment of $\Horient$ is thus closed in the inherited lift, with the residual obstruction reduced to a
+    single, sharply named analytical question: the spin-Galois phase of the full Lorentzian chiral lift.
+
+    \newpage
+    \bibliographystyle{plain}
+    \bibliography{cosmochrony-bibliography}
 
 \end{document}

@@ -102,7 +102,7 @@ Independent Researcher\\
 
     A numerical diagnostic in the inherited backend confirms the two computable quantities directly: with the campaign
     generators $\{\pm X,\pm Y\}$ of~\cite{Beau2026a16}, the raw average is exactly zero, the symmetrised anti-bias control
-    is exactly zero, and $\thmax\cdot q$ is $q$-invariant, with the same value at $q\in\{61,101\}$.
+    is exactly zero, and $\thmax\cdot q$ is $q$-invariant on the verified range $q\in\{61,101,151\}$.
     This validates the backend and the bound, but says nothing about $\sigma_L$.
     The present note derives $\sigma_L$ from the inherited lift and thereby converts the bound into a signal under a
     precisely named phase hypothesis.
@@ -204,9 +204,11 @@ because $\varphi$ contains the antiunitary $\JPi$.
     \begin{status}\textbf{Structural.}\end{status}
 
     This is consistent with the real symplectic model.
-    For a real lift $U\in\mathrm{SL}(2,\mathbb{R})$ one has $\two\cong\twobar$ (the representation is self-conjugate), so
-    the chiral distinction collapses and $\sigma_L = 0$, matching the chiral symmetry of the real cascade in
-    which $\mu = 0$~\cite[Rem.~6.4]{Beau2026q14}.
+    For a real lift $U\in\mathrm{SL}(2,\mathbb{R})$ the restricted representation is self-conjugate: the distinction
+    between $\two$ and $\twobar$ is not a canonical label on the real carrier.
+    Thus the effective chiral contrast carried by this real model is zero, which we denote schematically by $\sigma_L = 0$
+    before the complex Lorentzian lift is chosen.
+    This matches the chiral symmetry of the real cascade, in which $\mu = 0$~\cite[Rem.~6.4]{Beau2026q14}.
     The representation type is the unique label distinguished by complex conjugation, which is precisely the operation
     separating $\varphi$ from arrow inversion; this is why it can carry opposite parities under the two.
 
@@ -242,14 +244,22 @@ inherited phase.
 
   \section{Frontier overlap and the conditional signal}
 
-    On the nonzero-cocycle support the natural branch of the inherited phase, selected by the sign of its imaginary part
-    at the radially outgoing representative, satisfies
+    On the nonzero-cocycle support of the outgoing frontier, the natural branch of the inherited central phase is selected
+    by the sign of its imaginary part,
     \begin{equation}
       \sigma_L(e) = \sgn\,\Im\,\zq^{\,\dac(e)} = \sgn \dac(e),
+      \qquad e\in\partial^+,
     \end{equation}
     since for a centred residue $r\in(-q/2,q/2)$ one has $\sgn\sin(2\pi r/q) = \sgn r$.
-    This $\sigma_L$ is a function of the unoriented edge class, with the canonical radial cascade orientation fixing the
-    representative, hence arrow-even; the conjugation that flips the area on $\varphi e$ makes it $\varphi$-odd.
+    This formula is an outgoing-frontier branch selection.
+    For the paired inverted edge $e^{-1}$ the chiral label is transported with the same branch,
+    \begin{equation}
+      \sigma_L(e^{-1}) := \sigma_L(e),
+    \end{equation}
+    rather than recomputed from $\dac(e^{-1})$.
+    This is the arrow-even transport required by the reversal control, realised as a label on the unoriented edge class
+    with canonical radial representative, while complex conjugation still exchanges the two Weyl representation types and
+    gives $\varphi$-oddness.
     The normalised overlap is then
     \begin{equation}
       \rhochi = \frac{\langle \sigma_L\,\dac\rangle_{\partial^+}}{\langle |\dac|\rangle_{\partial^+}} = +1,
@@ -259,7 +269,7 @@ inherited phase.
     \begin{theorem}[Conditional orientation theorem]
 In the inherited Heisenberg central-phase lift, the chiral weight $\sigma_L$ equals $\sgn\dac$ on the nonzero-cocycle
 support of the outgoing frontier, transported arrow-even as a function of the unoriented edge.
-Consequently
+Consequently, in the frontier normalisation used in this diagnostic,
 \begin{equation}
   \omega_\chi(e) = \zq^{\,\dac(e)}
   \;\Longrightarrow\;
@@ -267,10 +277,10 @@ Consequently
   \;\Longrightarrow\;
   \Horient
   \;\Longrightarrow\;
-  \NA = \thmax \neq 0,
+  \NA = \thmax \neq 0.
 \end{equation}
-in this lift.
-The bound $\thmax$ is thereby promoted to a nonzero signal under the named phase hypothesis.
+The equality with $\thmax$ is a maximal-locking statement for the inherited central-phase frontier channel.
+It is not an absolute calibration of the later spectral split.
     \end{theorem}
 
     \begin{status}\textbf{Proved within the inherited central cyclotomic phase convention.}

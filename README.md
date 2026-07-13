@@ -1,7 +1,7 @@
 # Chiral Orientation of the Directed Heisenberg Frontier
 
 This repository contains the source of the Cosmochrony fermionic-matter paper
-[*Chiral Orientation of the Directed Heisenberg Frontier*](out/ChiralOrientationFrontier.pdf).
+*Chiral Orientation of the Directed Heisenberg Frontier*.
 
 The angular generation split of the projected Dirac residue $E_\Pi$ is carried, on the directed
 Heisenberg frontier, by a chirally dressed cocycle signal
@@ -45,7 +45,6 @@ chiral-orientation-frontier/
 
 ## Links
 
-- 📄 [Paper PDF](out/ChiralOrientationFrontier.pdf)
 - 🔗 DOI: [10.5281/zenodo.20735907](https://doi.org/10.5281/zenodo.20735907)
 - 🌐 Website: https://cosmochrony.org/science/fermionic-matter/chiral-orientation-frontier/
 

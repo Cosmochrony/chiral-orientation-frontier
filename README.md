@@ -3,19 +3,25 @@
 This repository contains the source of the Cosmochrony fermionic-matter paper
 *Chiral Orientation of the Directed Heisenberg Frontier*.
 
+## Status
+
+Working paper, v1.1 (local candidate, not deposited; last deposited version 1.0). DOI: [10.5281/zenodo.20735907](https://doi.org/10.5281/zenodo.20735907)
+
+## Abstract
+
 The directed Heisenberg frontier carries a chirally dressed cocycle signal
 $\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,d_{ac}\rangle_{\partial^+}$, a discrete counterpart of
 the orientation datum (in the sense of Q11OF) of the angular generation split of the projected Dirac
 residue $E_\Pi$; it is not the $J_3$ coefficient of the metaplectic step, which in the $\mathrm{SL}(2)$
 model of Q14 is produced by the $\mathfrak{sl}_2$ commutator $[E,F]=H$ (Q14, Proposition 6.5). The raw cocycle average and
-the maximal-locking bound are computable from the arithmetic backend, but the signal depends on
+the maximal-locking bound are computable on the Heisenberg frontier of Q11OF, but the signal depends on
 the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift, not the arithmetic
 frontier.
 
 ## Core Result
 
-Under the hypothesis [H-WS] of Q11OF ($R_b$ acts on the chiral carrier as the scalar $-1$, so $[\gamma_5,R_b]=0$;
-supplied by no source), $\sigma_L$ **cannot be any function of the real
+Under the hypothesis [H-WS] of Q11OF ($R_b$ acts on the chiral carrier as a scalar, so $[\gamma_5,R_b]=0$, which is
+all that this note uses; the value $-1$ of the scalar is used only in AOG; supplied by no source), $\sigma_L$ **cannot be any function of the real
 cascade generator $T(e)$**: edge inversion and the
 residual reflection $\varphi$ both act as $T \mapsto -T$, so every $f(T)$ has identical
 arrow-parity and $\varphi$-parity, whereas $\sigma_L$ must be arrow-even and $\varphi$-odd. The
@@ -23,7 +29,7 @@ resolution, under [H-WS]: $\sigma_L$ is the **Weyl representation type**, $\math
 — group inversion preserves the representation (arrow-even) while complex conjugation exchanges it
 ($\varphi$-odd). In the inherited Heisenberg central-phase lift the chiral phase is the linear
 cyclotomic character $\omega_\chi(e) = \zeta_q^{d_{ac}(e)}$, giving $\sigma_L(e) = \operatorname{sgn} d_{ac}(e)$
-and a non-zero frontier amplitude datum.
+and, by that definition, a non-zero frontier amplitude datum.
 
 This establishes chiral orientation **conditionally** in the inherited central-phase lift and under
 [H-WS]; the only remaining obstruction besides [H-WS] is an additional spin-Galois phase outside the central character (a
@@ -32,6 +38,22 @@ does not by itself derive $u \neq 0$, which would further require a transport of
 $J_\Pi$-odd generation sector; the only transport stated in PRS is the hypothesis [H-Tr] for the
 $\mathfrak{sl}_2$ opening, supplied by no source, and the identification of the frontier signal with
 that opening is a further input.
+
+## Reproduction
+
+```bash
+python code/frontier_exact.py     # standard library only, seconds
+```
+
+It recomputes, from this repository alone, the exact per-shell frontier statistics of the Heisenberg
+Cayley graph with generators $\{\pm X,\pm Y\}$: $\langle|\Delta A_c|\rangle_{\partial^+}(m) = \tfrac13, \tfrac59,
+\tfrac23, \tfrac{10}{11}, \tfrac{119}{109}, \tfrac{239}{185}$ (so $\theta_{\max}\cdot q$ is $2\pi$ times a rational
+number independent of $q\ge 61$ on each shell), the support fractions $\tfrac13, \tfrac49, \tfrac{11}{27},
+\tfrac{24}{55}, \tfrac{49}{109}, \tfrac{84}{185}$ and the vanishing of the signed frontier sums, for
+$q\in\{61,101,151,211,307\}$. The overlap $\rho_\chi=1$ is not computed: it holds by the definition
+$\sigma_L:=\operatorname{sgn}\Delta A_c$ on the support. No script computes $\sigma_L$ or any other chiral quantity:
+the chiral weight is not supplied by any source. The capacity-weighted bound is computed by the script of the Q11OF
+repository.
 
 ## Keywords
 
@@ -42,7 +64,7 @@ projected Dirac residue, spin-lift, cocycle signal.
 
 ```
 chiral-orientation-frontier/
-├── code/        # Diagnostic scripts (+ requirements.txt)
+├── code/        # exact frontier check (frontier_exact.py, standard library only)
 ├── tex/         # LaTeX sources (main + cosmochrony-bibliography.bib)
 ├── out/         # Compiled paper PDF (ChiralOrientationFrontier.pdf)
 ├── zenodo.json  # Zenodo deposition metadata

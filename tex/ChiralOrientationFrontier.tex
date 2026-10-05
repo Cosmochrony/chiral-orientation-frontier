@@ -8,6 +8,11 @@
 \usepackage{mathtools}
 \usepackage[hidelinks]{hyperref}
 \usepackage{doi}
+\hypersetup{
+  unicode,
+  pdftitle={Chiral Orientation of the Directed Heisenberg Frontier},
+  pdfauthor={Jérôme Beau}
+}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -47,18 +52,19 @@ Independent Researcher\\
     datum (in the sense of~\cite{Beau2026q11of}) of the angular generation split of the projected Dirac residue
     $\EPi$; it is not the $J_3$ coefficient of the metaplectic step, which in the $\mathrm{SL}(2)$ model of Q14 is
     produced by the $\mathfrak{sl}_2$ commutator $[E,F]=H$ (Q14, Proposition~6.5).
-    The raw cocycle average and the maximal-locking bound $\thmax$ are computable from the arithmetic backend, but the
+    The raw cocycle average and the maximal-locking bound $\thmax$ are computable on the Heisenberg frontier of~\cite{Beau2026q11of}, but the
     signal itself depends on the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift and not in the
     arithmetic frontier.
     We prove, under the hypothesis [H-WS] of~\cite{Beau2026q11of} (the residual reflection $R_b$ acts on the chiral
-    carrier as the scalar $-1$, so $[\gamma_5,R_b]=0$; supplied by no source), that $\sigma_L$ cannot be any function of the real cascade generator $T(e)$: edge inversion and the residual
+    carrier as a scalar, so $[\gamma_5,R_b]=0$, which is all that this note uses; the value $-1$ of the scalar is a second part,
+used only in~\cite{Beau2026aog}; supplied by no source), that $\sigma_L$ cannot be any function of the real cascade generator $T(e)$: edge inversion and the residual
     reflection $\varphi$ both act as $T\mapsto -T$, so every $f(T)$ has identical arrow-parity and $\varphi$-parity,
     whereas $\sigma_L$ must be arrow-even and $\varphi$-odd.
     The resolution, under [H-WS], is that $\sigma_L$ is the Weyl representation type, $\two$ versus $\twobar$: group
     inversion preserves the representation (arrow-even) while complex conjugation exchanges it ($\varphi$-odd).
     In the inherited Heisenberg central-phase lift the chiral phase is the linear cyclotomic character
     $\omega_\chi(e)=\zq^{\dac(e)}$, with no Gauss, Maslov, or $\sqrt{5}$ component; on the nonzero-cocycle support the
-    natural branch satisfies $\sigma_L(e)=\sgn \Im\,\zq^{\dac(e)} = \sgn\dac(e)$, giving $\rhochi = 1$ and
+    natural branch satisfies $\sigma_L(e)=\sgn \Im\,\zq^{\dac(e)} = \sgn\dac(e)$, giving, by this definition, $\rhochi = 1$ and
     $\NA = \thmax \neq 0$.
     This establishes $\Horient$ in the inherited Heisenberg central-phase lift and under [H-WS], not unconditionally:
     the only remaining obstruction besides [H-WS] is an additional spin-Galois phase outside the central character, in particular a $\sqrt{5}$ or
@@ -97,23 +103,26 @@ Independent Researcher\\
     \begin{equation}
       \thmax = \Big\langle \tfrac{2\pi}{q}\,|\dac| \Big\rangle_{\partial^+},
     \end{equation}
-    is also computable and is stable under $q$.
+    is also computable, and $q$-stable (see below).
     The signal that would turn the bound into an amplitude,
     \begin{equation}
       \Theta_\chi = \Big\langle \sigma_L\,\tfrac{2\pi}{q}\,\dac \Big\rangle_{\partial^+},
       \qquad |\Theta_\chi| \le \thmax,
     \end{equation}
     requires the chiral weight $\sigma_L(e)\in\{\pm 1\}$.
-    The frontier backend does not supply $\sigma_L$: it is the surviving stub of the Lorentzian chiral lift, and the
+    The frontier computation does not supply $\sigma_L$: it is the surviving stub of the Lorentzian chiral lift, and the
     question $\Horient$ is whether $\sigma_L$ is non-orthogonal to $\sgn\dac$ on the outgoing frontier,
     \begin{equation}
       \rhochi = \frac{\langle \sigma_L\,\dac\rangle_{\partial^+}}{\langle |\dac|\rangle_{\partial^+}}\neq 0.
     \end{equation}
 
-    A numerical diagnostic in the inherited backend confirms the two computable quantities directly: with the campaign
-    generators $\{\pm X,\pm Y\}$ of~\cite{Beau2026a16}, the raw average is exactly zero, the symmetrised anti-bias control
-    is exactly zero, and $\thmax\cdot q$ is $q$-invariant on the verified range $q\in\{61,101,151\}$.
-    This validates the backend and the bound, but says nothing about $\sigma_L$.
+    Both quantities are exact: with the generators $\{\pm X,\pm Y\}$ of~\cite{Beau2026a16}, the raw average and the
+    symmetrised anti-bias control vanish by the $\varphi$-pairing above, and on each shell $\thmax\cdot q$ is $2\pi$
+    times a rational number independent of $q$ for $q\ge 61$ ($\tfrac13,\tfrac59,\tfrac23,\ldots$ for
+    $m=1,2,3,\ldots$; the script of~\cite{Beau2026q11of}, which weights shells by the capacity increment, gives
+    $\thmax\cdot q=2.114,\ 2.122,\ 2.118$ at $n_3^{\mathrm{obs}}=2$ for $q=61,101,151$, stable to $0.4\,\%$, not
+    invariant), as recomputed by \texttt{code/frontier\_exact.py}.
+    This concerns the bound, and says nothing about $\sigma_L$.
     The present note derives $\sigma_L$ from the inherited lift and thereby converts the bound into a signal under a
     precisely named phase hypothesis.
 
@@ -225,12 +234,14 @@ two types.
 
   \section{The inherited central cyclotomic phase}
 
-    In the Schr\"odinger--Heisenberg convention of the exact Weil-block construction~\cite{Beau2026a16}, the lift acts as
+    In the Schr\"odinger--Heisenberg convention of the exact Weil-block construction~\cite{Beau2026a16}, with the group law
+    $(a,b,\gamma)(a',b',\gamma')=(a+a',b+b',\gamma+\gamma'+ab')$, the lift acts as
     \begin{equation}
-      \rho_c(a,b,\gamma)\,f(x) = \zq^{\,c(\gamma + b(x-a))}\,f(x-a),
+      \rho_c(a,b,\gamma)\,f(x) = \zq^{\,c(\gamma + bx)}\,f(x+a),
       \qquad \zq = e^{2\pi i/q},
     \end{equation}
-    with central character $\zq^{\,c\gamma}$.
+    which satisfies $\rho_c(g)\rho_c(h)=\rho_c(gh)$ for this law,
+    and has central character $\zq^{\,c\gamma}$.
     The central increment of an oriented edge is the Heisenberg cocycle, so the edge phase is the linear cyclotomic
     character
     \begin{equation}
@@ -240,14 +251,15 @@ two types.
     $c\leftrightarrow q-c$ realised by $\JPi$~\cite[\S 6]{Beau2026q14}.
 
     \begin{proposition}[Arithmetic nature of the inherited phase]
-In this convention the edge phase is purely linear in the cocycle: the recovered exponent equals $c\,a(g)\,s_b$ with
+In this convention the edge phase is purely linear in the cocycle: the exponent is the central increment $c\,a(g)\,s_b$ of the group law, with
 no quadratic residue, and $|\omega_\chi(e)| = 1$ on every edge.
 There is therefore no Gauss sum $\sqrt{q}$, no Maslov quadratic character, and no $\sqrt{5}$ amplitude in the
 inherited phase.
     \end{proposition}
 
     \begin{status}\textbf{Proved within the inherited central cyclotomic phase convention.}
-      Verified directly on the campaign backend by exponent recovery and by termwise unit modulus.\end{status}
+      The exponent $c\,a(g)\,s_b$ is the central increment of the group law and $|\zq^k|=1$ termwise; no separate
+      numerical verification is claimed.\end{status}
 
     The absence of a Fourier or Weyl generator in the Schr\"odinger--Heisenberg pipeline is the structural reason no
     metaplectic Gauss phase appears: the lift is a product of Heisenberg translations and modulations, whose only phase is
@@ -275,7 +287,8 @@ inherited phase.
     \begin{equation}
       \rhochi = \frac{\langle \sigma_L\,\dac\rangle_{\partial^+}}{\langle |\dac|\rangle_{\partial^+}} = +1,
     \end{equation}
-    and, restricted to the cocycle support, the locking is maximal.
+    and, restricted to the cocycle support, the locking is maximal; this value is a consequence of the definition
+    $\sigma_L:=\sgn\dac$ on the support, not a measured quantity.
 
     \begin{theorem}[Conditional orientation theorem]
 In the inherited Heisenberg central-phase lift, the chiral weight $\sigma_L$ equals $\sgn\dac$ on the nonzero-cocycle
@@ -295,10 +308,12 @@ It is not an absolute calibration of the later spectral split.
     \end{theorem}
 
     \begin{status}\textbf{Proved within the inherited central cyclotomic phase convention and under [H-WS].}
-      The overlap $\rhochi = 1$ is $q$-invariant on the verified range $q\in\{61,101,151\}$; the support fraction of the
-      cocycle is itself $q$-invariant.\end{status}
+      The overlap $\rhochi=1$ holds by the definition $\sigma_L=\sgn\dac$ on the support (it is not a measured
+      quantity); the support fraction of the cocycle on $\partial^+S_m$ is
+      $\tfrac13,\tfrac49,\tfrac{11}{27},\tfrac{24}{55},\tfrac{49}{109},\tfrac{84}{185}$ for $m=1,\dots,6$,
+      independent of $q\ge 61$ (exact; \texttt{code/frontier\_exact.py}).\end{status}
 
-    The reading is deliberately conservative: the campaign run validated the backend and the bound; the analysis of the
+    The reading is deliberately conservative: the exact frontier computation validates the backend and the bound; the analysis of the
     inherited lift, and only that, converts the bound into a signal.
     No step infers $\NA\neq 0$ from a positive run.
 
@@ -320,7 +335,7 @@ In that case the signal would exist operationally while the frontier amplitude v
 
     \begin{status}\textbf{Open.}
       Whether the chiral spin-lift carries only the inherited central character, or an additional spin-Galois phase, is the
-      single remaining obstruction besides [H-WS]; it is analytical and lies outside the present backend.\end{status}
+      single remaining obstruction besides [H-WS]; it is analytical and lies outside the present frontier computation.\end{status}
 
   \section{Relation to the Schur transport}
 

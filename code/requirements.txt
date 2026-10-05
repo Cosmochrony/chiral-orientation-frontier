@@ -1,2 +1,1 @@
-numpy>=2.4.0
-matplotlib>=3.7
+# frontier_exact.py uses the Python standard library only (no third-party dependency).

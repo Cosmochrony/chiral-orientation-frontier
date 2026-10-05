@@ -14,12 +14,12 @@ frontier.
 
 ## Core Result
 
-Under the hypothesis [H-WS] of Q11OF (a group-level map from the finite Weil group to the spin-solder
-$\mathrm{SL}(2,\mathbb{C})$, supplied by no source), $\sigma_L$ **cannot be any function of the real
+Under the hypothesis [H-WS] of Q11OF ($R_b$ acts on the chiral carrier as a scalar, so $[\gamma_5,R_b]=0$;
+supplied by no source), $\sigma_L$ **cannot be any function of the real
 cascade generator $T(e)$**: edge inversion and the
 residual reflection $\varphi$ both act as $T \mapsto -T$, so every $f(T)$ has identical
 arrow-parity and $\varphi$-parity, whereas $\sigma_L$ must be arrow-even and $\varphi$-odd. The
-resolution: $\sigma_L$ is the **Weyl representation type**, $\mathbf{2}$ versus $\bar{\mathbf{2}}$
+resolution, under [H-WS]: $\sigma_L$ is the **Weyl representation type**, $\mathbf{2}$ versus $\bar{\mathbf{2}}$
 — group inversion preserves the representation (arrow-even) while complex conjugation exchanges it
 ($\varphi$-odd). In the inherited Heisenberg central-phase lift the chiral phase is the linear
 cyclotomic character $\omega_\chi(e) = \zeta_q^{d_{ac}(e)}$, giving $\sigma_L(e) = \operatorname{sgn} d_{ac}(e)$

@@ -50,12 +50,12 @@ Independent Researcher\\
     The raw cocycle average and the maximal-locking bound $\thmax$ are computable from the arithmetic backend, but the
     signal itself depends on the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift and not in the
     arithmetic frontier.
-    We prove, under the hypothesis [H-WS] of~\cite{Beau2026q11of} (a group-level map from the finite Weil group to the
-    spin-solder $\mathrm{SL}(2,\mathbb{C})$, supplied by no source), that $\sigma_L$ cannot be any function of the real cascade generator $T(e)$: edge inversion and the residual
+    We prove, under the hypothesis [H-WS] of~\cite{Beau2026q11of} (the residual reflection $R_b$ acts on the chiral
+    carrier as a scalar, so $[\gamma_5,R_b]=0$; supplied by no source), that $\sigma_L$ cannot be any function of the real cascade generator $T(e)$: edge inversion and the residual
     reflection $\varphi$ both act as $T\mapsto -T$, so every $f(T)$ has identical arrow-parity and $\varphi$-parity,
     whereas $\sigma_L$ must be arrow-even and $\varphi$-odd.
-    The resolution is that $\sigma_L$ is the Weyl representation type, $\two$ versus $\twobar$: group inversion preserves
-    the representation (arrow-even) while complex conjugation exchanges it ($\varphi$-odd).
+    The resolution, under [H-WS], is that $\sigma_L$ is the Weyl representation type, $\two$ versus $\twobar$: group
+    inversion preserves the representation (arrow-even) while complex conjugation exchanges it ($\varphi$-odd).
     In the inherited Heisenberg central-phase lift the chiral phase is the linear cyclotomic character
     $\omega_\chi(e)=\zq^{\dac(e)}$, with no Gauss, Maslov, or $\sqrt{5}$ component; on the nonzero-cocycle support the
     natural branch satisfies $\sigma_L(e)=\sgn \Im\,\zq^{\dac(e)} = \sgn\dac(e)$, giving $\rhochi = 1$ and
@@ -124,13 +124,13 @@ Independent Researcher\\
   \section{Problem statement: $T(e)$ cannot define $\sigma_L$}
 
     The required parities are fixed by the oriented-frontier observable~\cite{Beau2026q11of}.
-    Under the residual reflection $\varphi = R_b\circ\JPi$ one has $\dac\circ\varphi = -\dac$ and $\gamma_5\circ\varphi =
-  -\gamma_5$, so the dressed signal $\gamma_5\dac$ is $\varphi$-even and survives the re-pairing that kills the raw
+    Under the residual reflection $\varphi = R_b\circ\JPi$ one has $\dac\circ\varphi = -\dac$ and, under [H-WS]
+    of~\cite{Beau2026q11of} (equivalently $[\gamma_5,R_b]=0$), $\gamma_5\circ\varphi = -\gamma_5$, so the dressed signal $\gamma_5\dac$ is $\varphi$-even and survives the re-pairing that kills the raw
     cocycle.
     Under cascade reversal the cocycle is arrow-odd, $\dac(e^{-1}) = -\dac(e)$, so the reversal control
     $\Theta_\chi^{(\partial^+)^{-1}} = -\Theta_\chi^{\partial^+}$ holds only if the chiral weight is transported rather than
     recomputed.
-    The admissible $\sigma_L$ must therefore satisfy
+    The admissible $\sigma_L$ must therefore, under [H-WS], satisfy
     \begin{equation}
       \sigma_L\circ\varphi = -\sigma_L \quad(\varphi\text{-odd}),
       \qquad
@@ -160,8 +160,8 @@ Independent Researcher\\
 
     \begin{lemma}[Parity collapse]
 Let $U(e)$ be the lift of the oriented edge with $T(e) = \log U(e)$ restricted to the doublet.
-Edge inversion $U(e^{-1}) = U(e)^{-1}$ gives $T(e^{-1}) = -T(e)$, and the residual reflection gives $T(\varphi e) =
-\varphi T(e)\varphi^{-1} = -T(e)$.
+Edge inversion $U(e^{-1}) = U(e)^{-1}$ gives $T(e^{-1}) = -T(e)$, and, under [H-WS] of~\cite{Beau2026q11of}, the
+residual reflection gives $T(\varphi e) = \varphi T(e)\varphi^{-1} = -T(e)$.
 Hence both operations act as $(\alpha,\mu)\mapsto(-\alpha,-\mu)$, and every function $f(T)$ has identical
 arrow-parity and $\varphi$-parity.
     \end{lemma}
@@ -207,11 +207,12 @@ $\sigma_L$ is arrow-even and $\varphi$-odd, while every $f(T)$ has equal arrow- 
     \begin{proposition}[Correct parities of the representation type]
 Group inversion preserves the representation type, $\sigma_L(e^{-1}) = \sigma_L(e)$ (arrow-even), because $U^{-1}$ lies
 in the same representation as $U$.
-Complex conjugation exchanges $\two\leftrightarrow\twobar$, $\sigma_L(\varphi e) = -\sigma_L(e)$ ($\varphi$-odd),
-because $\varphi$ contains the antiunitary $\JPi$.
+Under [H-WS] of~\cite{Beau2026q11of}, complex conjugation exchanges $\two\leftrightarrow\twobar$, $\sigma_L(\varphi e) =
+-\sigma_L(e)$ ($\varphi$-odd), because $\varphi$ contains the antiunitary $\JPi$ and $R_b$ does not itself exchange the
+two types.
     \end{proposition}
 
-    \begin{status}\textbf{Structural.}\end{status}
+    \begin{status}\textbf{Structural, under [H-WS].}\end{status}
 
     This is consistent with the real symplectic model.
     For a real lift $U\in\mathrm{SL}(2,\mathbb{R})$ the restricted representation is self-conjugate: the distinction
@@ -313,13 +314,13 @@ It is not an absolute calibration of the later spectral split.
 Should the chiral branch acquire a phase in a Galois factor orthogonal to $\zq$, in particular a $\sqrt{5}$ or
 ADE-spin factor, then $\langle\sigma_L\,\sgn\dac\rangle_{\partial^+}$ could vanish by character
 orthogonality~\cite{Beau2026aog}, yielding a clean no-go of the same type as the arithmetic obstruction governing the
-ADE case selection of the generation gate~\cite{Beau2026q14}.
+ADE case selection of the generation gate, which is isolated in~\cite{Beau2026aog}.
 In that case the signal would exist operationally while the frontier amplitude vanished.
     \end{remark}
 
     \begin{status}\textbf{Open.}
       Whether the chiral spin-lift carries only the inherited central character, or an additional spin-Galois phase, is the
-      single remaining obstruction; it is analytical and lies outside the present backend.\end{status}
+      single remaining obstruction besides [H-WS]; it is analytical and lies outside the present backend.\end{status}
 
   \section{Relation to the Schur transport}
 
@@ -348,7 +349,7 @@ In that case the signal would exist operationally while the frontier amplitude v
 
     \begin{itemize}
       \item $\sigma_L \neq f(T(e))$: \textbf{proved under [H-WS]}.
-      \item $\sigma_L = $ Weyl representation type ($\two$ versus $\twobar$): \textbf{structural}.
+      \item $\sigma_L = $ Weyl representation type ($\two$ versus $\twobar$): \textbf{structural, under [H-WS]}.
       \item $\omega_\chi(e) = \zq^{\,\dac(e)}$ linear, no Gauss / Maslov / $\sqrt{5}$ component:
       \textbf{proved within the inherited central cyclotomic phase convention}.
       \item $\rhochi = 1$ on the cocycle support, hence $\NA = \thmax \neq 0$:
@@ -357,8 +358,9 @@ In that case the signal would exist operationally while the frontier amplitude v
       \item $u \neq 0$: \textbf{not derived here; no transport from the frontier signal to the locking operator is supplied}.
     \end{itemize}
 
-    The qualitative segment of $\Horient$ is thus closed in the inherited lift, with the residual obstruction reduced to a
-    single, sharply named analytical question: the spin-Galois phase of the full Lorentzian chiral lift.
+    The qualitative segment of $\Horient$ is thus closed in the inherited lift under [H-WS], with the residual obstruction
+    reduced, besides [H-WS], to a single, sharply named analytical question: the spin-Galois phase of the full Lorentzian
+    chiral lift.
 
     \newpage
     \bibliographystyle{plain}

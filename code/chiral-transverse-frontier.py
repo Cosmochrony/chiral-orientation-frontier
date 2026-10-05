@@ -39,7 +39,7 @@ chiral signal until C_raw passes.
 INTERPRETATION GATE
 -------------------
 The PRIMARY verdict is decidable WITHOUT eta_m: the measured object is unweighted. The new primary
-lock is gamma5 o phi = -gamma5 (Q11OF) (no map from <gamma5 Delta A_c>_{partial+} to the Q14 coefficient alpha is supplied). eta_m is required only for the auxiliary chi_m relation checks, which are reported
+lock, under [H-WS] of Q11OF (R_b scalar on the chiral carrier), is gamma5 o phi = -gamma5 (no map from <gamma5 Delta A_c>_{partial+} to the Q14 coefficient alpha is supplied). eta_m is required only for the auxiliary chi_m relation checks, which are reported
 separately and left undecidable until the Weil-lift convention chi_m o phi = eta_m chi_{-m} is read
 off.
 
@@ -173,7 +173,7 @@ class CorpusBackend:
         """Chiral weight +/-1 of the Lorentzian spinorial lift of the edge (g -> g s).
 
         NOT an attribute of the finite edge alone: it is the chiral weight of the Lorentzian
-        spinorial lift. Under [H-WS] (Q11OF; a Weil-to-spin group map, supplied by no source),
+        spinorial lift. Under [H-WS] (Q11OF; R_b acts as a scalar on the chiral carrier, supplied by no source),
         R_b = W(-I) = FT^2 is a scalar on the chiral carrier ([gamma5, R_b] = 0),
         so the dressed signal survives the residual reflection phi while the undressed one re-pairs.
         """
@@ -285,7 +285,7 @@ def control_sym(backend: CorpusBackend, fr: Frontier) -> complex:
 
 
 def control_reversed(backend: CorpusBackend, fr: Frontier) -> complex:
-    """C_rev: signal on the inverted frontier; expect = -theta_primary (alpha_rev = -alpha)."""
+    """C_rev: signal on the inverted frontier; expect = -theta_primary (reversal sign flip; not identified with Q14's alpha_rev)."""
     return _theta_unweighted(backend, _inverted(fr), dressed=True)
 
 
@@ -390,7 +390,7 @@ def success_verdict(shells, cum, eta_plus: Optional[complex], tol: float):
     flags["C_raw_null"] = all(abs(sh.c_raw) <= tol for sh in shells)
     # C_sym: symmetrised dressed cancellation null.
     flags["C_sym_null"] = all(abs(sh.c_sym) <= tol for sh in shells)
-    # C_rev: signal on inverted frontier = -theta_primary (alpha_rev = -alpha).
+    # C_rev: signal on inverted frontier = -theta_primary (reversal sign flip; not identified with Q14's alpha_rev).
     flags["C_rev_signflip"] = all(
         abs(sh.c_rev + sh.theta_primary) <= tol for sh in shells
     )

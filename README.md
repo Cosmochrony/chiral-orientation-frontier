@@ -5,16 +5,18 @@ This repository contains the source of the Cosmochrony fermionic-matter paper
 
 The directed Heisenberg frontier carries a chirally dressed cocycle signal
 $\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,d_{ac}\rangle_{\partial^+}$, a discrete counterpart of
-the orientation datum of the angular generation split of the projected Dirac residue $E_\Pi$; it
-is not the $J_3$ coefficient of the metaplectic step, which comes from the $\mathfrak{sl}_2$
-commutator $[E,F]=H$ (Q14, Proposition 6.5). The raw cocycle average and
+the orientation datum (in the sense of Q11OF) of the angular generation split of the projected Dirac
+residue $E_\Pi$; it is not the $J_3$ coefficient of the metaplectic step, which in the $\mathrm{SL}(2)$
+model of Q14 is produced by the $\mathfrak{sl}_2$ commutator $[E,F]=H$ (Q14, Proposition 6.5). The raw cocycle average and
 the maximal-locking bound are computable from the arithmetic backend, but the signal depends on
 the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift, not the arithmetic
 frontier.
 
 ## Core Result
 
-$\sigma_L$ **cannot be any function of the real cascade generator $T(e)$**: edge inversion and the
+Under the hypothesis [H-WS] of Q11OF (a group-level map from the finite Weil group to the spin-solder
+$\mathrm{SL}(2,\mathbb{C})$, supplied by no source), $\sigma_L$ **cannot be any function of the real
+cascade generator $T(e)$**: edge inversion and the
 residual reflection $\varphi$ both act as $T \mapsto -T$, so every $f(T)$ has identical
 arrow-parity and $\varphi$-parity, whereas $\sigma_L$ must be arrow-even and $\varphi$-odd. The
 resolution: $\sigma_L$ is the **Weyl representation type**, $\mathbf{2}$ versus $\bar{\mathbf{2}}$
@@ -23,11 +25,13 @@ resolution: $\sigma_L$ is the **Weyl representation type**, $\mathbf{2}$ versus 
 cyclotomic character $\omega_\chi(e) = \zeta_q^{d_{ac}(e)}$, giving $\sigma_L(e) = \operatorname{sgn} d_{ac}(e)$
 and a non-zero frontier amplitude datum.
 
-This establishes chiral orientation **conditionally** in the inherited central-phase lift; the
-only remaining obstruction is an additional spin-Galois phase outside the central character (a
+This establishes chiral orientation **conditionally** in the inherited central-phase lift and under
+[H-WS]; the only remaining obstruction besides [H-WS] is an additional spin-Galois phase outside the central character (a
 $\sqrt{5}$ or ADE-spin factor). It is a conditional derivation of the frontier amplitude datum and
-does not by itself derive $u \neq 0$, which would further require the transport hypothesis [H-Tr]
-of the Schur reduction onto the $J_\Pi$-odd generation sector, supplied by no source.
+does not by itself derive $u \neq 0$, which would further require a transport of the oriented signal to the
+$J_\Pi$-odd generation sector; the only transport stated in PRS is the hypothesis [H-Tr] for the
+$\mathfrak{sl}_2$ opening, supplied by no source, and the identification of the frontier signal with
+that opening is a further input.
 
 ## Keywords
 

@@ -13,8 +13,9 @@ DESIGN
 Two layers, deliberately separated:
 
   1. Primary layer (this file, fully implemented and validated by construction): the UNWEIGHTED
-     chiral-dressed measured object <gamma5 (2pi/q) Delta A_c>_{partial+} -- the direct frontier
-     observable of the Q14 operator coefficient alpha -- and its controls C_raw, C_sym, C_rev. No
+     chiral-dressed measured object <gamma5 (2pi/q) Delta A_c>_{partial+} -- the chirally dressed
+     frontier signal (a counterpart of the orientation datum, NOT the Q14 J_3 coefficient alpha,
+     which comes from the sl_2 commutator [E,F]=H, Q14 Prop 6.5) -- and its controls C_raw, C_sym, C_rev. No
      chi_m weight enters the primary criterion.
 
   2. Auxiliary chi_m representation diagnostics (reported, not the N_A criterion): the weighted
@@ -38,8 +39,7 @@ chiral signal until C_raw passes.
 INTERPRETATION GATE
 -------------------
 The PRIMARY verdict is decidable WITHOUT eta_m: the measured object is unweighted. The new primary
-lock is gamma5 o phi = -gamma5 (Q11OF) and the consistency <gamma5 Delta A_c>_{partial+} <-> alpha
-(Q14 sec 6.3). eta_m is required only for the auxiliary chi_m relation checks, which are reported
+lock is gamma5 o phi = -gamma5 (Q11OF) (no map from <gamma5 Delta A_c>_{partial+} to the Q14 coefficient alpha is supplied). eta_m is required only for the auxiliary chi_m relation checks, which are reported
 separately and left undecidable until the Weil-lift convention chi_m o phi = eta_m chi_{-m} is read
 off.
 
@@ -173,7 +173,8 @@ class CorpusBackend:
         """Chiral weight +/-1 of the Lorentzian spinorial lift of the edge (g -> g s).
 
         NOT an attribute of the finite edge alone: it is the chiral weight of the Lorentzian
-        spinorial lift. R_b = W(-I) = FT^2 is a scalar on the chiral carrier ([gamma5, R_b] = 0),
+        spinorial lift. Under [H-WS] (Q11OF; a Weil-to-spin group map, supplied by no source),
+        R_b = W(-I) = FT^2 is a scalar on the chiral carrier ([gamma5, R_b] = 0),
         so the dressed signal survives the residual reflection phi while the undressed one re-pairs.
         """
         raise NotImplementedError("Wire CorpusBackend.gamma5 to the q11 Lorentzian chiral lift.")
@@ -246,7 +247,7 @@ def _theta_weighted(backend: CorpusBackend, edges: list, m: int, dressed: bool) 
 def _theta_unweighted(backend: CorpusBackend, edges: list, dressed: bool) -> complex:
     """Average of [gamma5] * (2 pi / q) * Delta A_c, NO chi_m weight. PRIMARY object.
 
-    dressed=True  -> the measured signal <gamma5 Delta A_c> (the operator coefficient alpha).
+    dressed=True  -> the measured signal <gamma5 Delta A_c> (not identified with the Q14 coefficient alpha).
     dressed=False -> the raw control <Delta A_c> (phi-killed; backend-correctness gate).
     """
     if not edges:

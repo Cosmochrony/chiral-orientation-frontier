@@ -3,9 +3,11 @@
 This repository contains the source of the Cosmochrony fermionic-matter paper
 *Chiral Orientation of the Directed Heisenberg Frontier*.
 
-The angular generation split of the projected Dirac residue $E_\Pi$ is carried, on the directed
-Heisenberg frontier, by a chirally dressed cocycle signal
-$\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,d_{ac}\rangle_{\partial^+}$. The raw cocycle average and
+The directed Heisenberg frontier carries a chirally dressed cocycle signal
+$\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,d_{ac}\rangle_{\partial^+}$, a discrete counterpart of
+the orientation datum of the angular generation split of the projected Dirac residue $E_\Pi$; it
+is not the $J_3$ coefficient of the metaplectic step, which comes from the $\mathfrak{sl}_2$
+commutator $[E,F]=H$ (Q14, Proposition 6.5). The raw cocycle average and
 the maximal-locking bound are computable from the arithmetic backend, but the signal depends on
 the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift, not the arithmetic
 frontier.
@@ -24,8 +26,8 @@ and a non-zero frontier amplitude datum.
 This establishes chiral orientation **conditionally** in the inherited central-phase lift; the
 only remaining obstruction is an additional spin-Galois phase outside the central character (a
 $\sqrt{5}$ or ADE-spin factor). It is a conditional derivation of the frontier amplitude datum and
-does not by itself derive $u \neq 0$, which still requires the Schur transport onto the
-$J_\Pi$-odd generation sector.
+does not by itself derive $u \neq 0$, which would further require the transport hypothesis [H-Tr]
+of the Schur reduction onto the $J_\Pi$-odd generation sector, supplied by no source.
 
 ## Keywords
 

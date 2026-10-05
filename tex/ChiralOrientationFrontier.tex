@@ -42,8 +42,10 @@ Independent Researcher\\
   \maketitle
 
   \begin{abstract}
-    The angular generation split of the projected Dirac residue $\EPi$ is carried, on the directed Heisenberg
-    frontier, by a chirally dressed cocycle signal $\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,\dac\rangle_{\partial^+}$.
+    The directed Heisenberg frontier carries a chirally dressed cocycle signal
+    $\Theta_\chi = \langle \sigma_L\,(2\pi/q)\,\dac\rangle_{\partial^+}$, a discrete counterpart of the orientation
+    datum of the angular generation split of the projected Dirac residue $\EPi$; it is not the $J_3$ coefficient
+    of the metaplectic step, which comes from the $\mathfrak{sl}_2$ commutator $[E,F]=H$ (Q14, Proposition~6.5).
     The raw cocycle average and the maximal-locking bound $\thmax$ are computable from the arithmetic backend, but the
     signal itself depends on the chiral weight $\sigma_L$, whose origin lies in the Lorentzian spin-lift and not in the
     arithmetic frontier.
@@ -59,8 +61,9 @@ Independent Researcher\\
     This establishes $\Horient$ in the inherited Heisenberg central-phase lift, not unconditionally: the only remaining
     obstruction is an additional spin-Galois phase outside the central character, in particular a $\sqrt{5}$ or
     ADE-spin factor orthogonal to $\zq$.
-    The result is a conditional derivation of the frontier amplitude datum; it does not derive $u\neq 0$, which still
-    requires the Schur transport of the polarisation onto the $\JPi$-odd generation sector.
+    The result is a conditional derivation of the frontier amplitude datum; it does not derive $u\neq 0$, which would
+    further require the transport hypothesis [H-Tr] of the Schur reduction onto the $\JPi$-odd generation sector,
+    supplied by no source.
   \end{abstract}
 
   \noindent\textbf{Keywords:} directed Heisenberg frontier; chiral orientation; Weil representation type; metaplectic
@@ -72,11 +75,15 @@ Independent Researcher\\
   \newpage
   \section{Introduction}
 
-    The projected Dirac residue admits the Schur-complement form $\EPi = -M^\dagger M$, and the inter-generation mass
-    split is the $J_3$-odd asymmetry of $\EPi^2$ on the gauge-singlet generation factor $\mathbb{C}^3_{\mathrm{gen}}
-  \cong \mathrm{Sym}^2(V)$~\cite{Beau2026prs}.
-    The oriented-frontier diagnostic of the recursive $Q11$ model reduces the angular part of this split to a single
-    observable on the directed Cayley graph of $\mathrm{Heis}_3(\Zq)$~\cite{Beau2026q11of}.
+    The fermionic sub-programme locates the inter-generation mass split in the $J_3$-odd part of $\EPi^2$ on the
+    gauge-singlet generation factor $\mathbb{C}^3_{\mathrm{gen}} \cong \mathrm{Sym}^2(V)$, read through the reading
+    map $\Phi$ of the hypothesis [H-Gen] of~\cite{Beau2026prs}, which is supplied there as a hypothesis.
+    That note shows the Schur form $-N^\dagger N\preceq0$ of the compression remainder of the projected Dirac square,
+    which is the projective endomorphism of Q14 only under the identity $\PiS D^2\PiS^*=\mathrm{Lich}$, and derives no
+    mechanism for a non-zero split.
+    The oriented-frontier diagnostic of the recursive $Q11$ model defines a single observable on the directed Cayley
+    graph of $\mathrm{Heis}_3(\Zq)$~\cite{Beau2026q11of}, a discrete counterpart of the orientation datum of this
+    split; no map from it to the $J_3$-odd part of $\EPi^2$ is supplied.
     That diagnostic returns two computable quantities and one missing datum.
     The raw directed cocycle average vanishes,
     \begin{equation}
@@ -143,8 +150,8 @@ Independent Researcher\\
       = \begin{pmatrix}\alpha & \mu\\ -\mu & -\alpha\end{pmatrix},
       \qquad \lambda_\pm = \pm\sqrt{\alpha^2-\mu^2},
     \end{equation}
-    where $\alpha$ is the real-split coefficient produced by the order $[X,Y]=Z$ and $\mu$ is the mixing
-    coefficient~\cite[Prop.~6.5]{Beau2026q14}.
+    where $\alpha$ is the real-split coefficient produced by the order of the product through the $\mathfrak{sl}_2$
+    commutator $[E,F]=H$ and $\mu$ is the mixing coefficient~\cite[Prop.~6.5]{Beau2026q14}.
     The conjugations $\JPi\sigma_3\JPi^{-1} = -\sigma_3$ and $\JPi(i\sigma_2)\JPi^{-1} = -i\sigma_2$ give $\JPi T
   \JPi^{-1} = -T$, so $T$ is $\JPi$-odd.
 
@@ -321,11 +328,14 @@ In that case the signal would exist operationally while the frontier amplitude v
     \begin{equation}
       \PiS\, D\,(\partial_s P|_0)\, D\,\PiS^{*}\Big|_{\mathrm{gen},\,\JPi\text{-odd}} \neq 0,
     \end{equation}
-    which is a distinct statement on the same chiral object~\cite{Beau2026prs}.
-    The two stages are sequential: $\Horient$ promotes the bound to a signal $\NA\neq 0$, and the Schur transport then
-    promotes the signal to the spectral split $u\neq 0$ within the stratigraphic mass hierarchy~\cite{Beau2026a4}.
+    which is a distinct statement on the same chiral object~\cite{Beau2026prs} (its outer-weight part, read through
+    $\Phi$ of [H-Gen] for the $\JPi$-odd part of $\partial_sP|_0$, is the Schur-transverse condition of that note).
+    The two stages are sequential: $\Horient$ promotes the bound to a signal $\NA\neq 0$, and a Schur transport would
+    then promote the signal to the spectral split $u\neq 0$ within the stratigraphic mass hierarchy~\cite{Beau2026a4}.
+    In~\cite{Beau2026prs} this transport is the hypothesis [H-Tr], supplied by no source; the Schur-null and
+    Schur-transverse loci are defined there, and which one holds is open.
 
-    \begin{status}\textbf{Not derived here; requires Schur transport.}\end{status}
+    \begin{status}\textbf{Not derived here; requires the transport hypothesis [H-Tr] of the Schur reduction.}\end{status}
 
   \section{Status summary}
 
@@ -337,7 +347,7 @@ In that case the signal would exist operationally while the frontier amplitude v
       \item $\rhochi = 1$ on the cocycle support, hence $\NA = \thmax \neq 0$:
       \textbf{proved within the inherited central cyclotomic phase convention}.
       \item Absence of an additional spin-Galois phase: \textbf{open}.
-      \item $u \neq 0$: \textbf{not derived here; requires Schur transport}.
+      \item $u \neq 0$: \textbf{not derived here; requires the transport hypothesis [H-Tr] of the Schur reduction}.
     \end{itemize}
 
     The qualitative segment of $\Horient$ is thus closed in the inherited lift, with the residual obstruction reduced to a

@@ -14,7 +14,7 @@ frontier.
 
 ## Core Result
 
-Under the hypothesis [H-WS] of Q11OF ($R_b$ acts on the chiral carrier as a scalar, so $[\gamma_5,R_b]=0$;
+Under the hypothesis [H-WS] of Q11OF ($R_b$ acts on the chiral carrier as the scalar $-1$, so $[\gamma_5,R_b]=0$;
 supplied by no source), $\sigma_L$ **cannot be any function of the real
 cascade generator $T(e)$**: edge inversion and the
 residual reflection $\varphi$ both act as $T \mapsto -T$, so every $f(T)$ has identical

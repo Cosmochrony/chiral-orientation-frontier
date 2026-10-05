@@ -39,7 +39,7 @@ chiral signal until C_raw passes.
 INTERPRETATION GATE
 -------------------
 The PRIMARY verdict is decidable WITHOUT eta_m: the measured object is unweighted. The new primary
-lock, under [H-WS] of Q11OF (R_b scalar on the chiral carrier), is gamma5 o phi = -gamma5 (no map from <gamma5 Delta A_c>_{partial+} to the Q14 coefficient alpha is supplied). eta_m is required only for the auxiliary chi_m relation checks, which are reported
+lock, under [H-WS] of Q11OF (R_b = scalar -1 on the chiral carrier), is gamma5 o phi = -gamma5 (no map from <gamma5 Delta A_c>_{partial+} to the Q14 coefficient alpha is supplied). eta_m is required only for the auxiliary chi_m relation checks, which are reported
 separately and left undecidable until the Weil-lift convention chi_m o phi = eta_m chi_{-m} is read
 off.
 
@@ -173,8 +173,8 @@ class CorpusBackend:
         """Chiral weight +/-1 of the Lorentzian spinorial lift of the edge (g -> g s).
 
         NOT an attribute of the finite edge alone: it is the chiral weight of the Lorentzian
-        spinorial lift. Under [H-WS] (Q11OF; R_b acts as a scalar on the chiral carrier, supplied by no source),
-        R_b = W(-I) = FT^2 is a scalar on the chiral carrier ([gamma5, R_b] = 0),
+        spinorial lift. Under [H-WS] (Q11OF; R_b acts as the scalar -1 on the chiral carrier, supplied by no source),
+        R_b = W(-I) = FT^2 is the scalar -1 on the chiral carrier ([gamma5, R_b] = 0),
         so the dressed signal survives the residual reflection phi while the undressed one re-pairs.
         """
         raise NotImplementedError("Wire CorpusBackend.gamma5 to the q11 Lorentzian chiral lift.")

@@ -47,12 +47,13 @@ python code/frontier_exact.py     # standard library only, seconds
 
 It recomputes, from this repository alone, the exact per-shell frontier statistics of the Heisenberg
 Cayley graph with generators $\{\pm X,\pm Y\}$: $\langle|\Delta A_c|\rangle_{\partial^+}(m) = \tfrac13, \tfrac59,
-\tfrac23, \tfrac{10}{11}, \tfrac{119}{109}, \tfrac{239}{185}$ (so $\theta_{\max}\cdot q$ is $2\pi$ times a rational
-number independent of $q\ge 61$ on each shell), the support fractions $\tfrac13, \tfrac49, \tfrac{11}{27},
+\tfrac23, \tfrac{10}{11}, \tfrac{119}{109}, \tfrac{239}{185}$ (so, on the shells $m\le 6$, $\theta_{\max}\cdot q$ is $2\pi$ times a rational
+number, equal for the five primes below; verified for $m\le 6$ only, nothing is claimed for larger $m$), the support fractions $\tfrac13, \tfrac49, \tfrac{11}{27},
 \tfrac{24}{55}, \tfrac{49}{109}, \tfrac{84}{185}$ and the vanishing of the signed frontier sums, for
 $q\in\{61,101,151,211,307\}$. The overlap $\rho_\chi=1$ is not computed: it holds by the definition
 $\sigma_L:=\operatorname{sgn}\Delta A_c$ on the support. No script computes $\sigma_L$ or any other chiral quantity:
-the chiral weight is not supplied by any source. The capacity-weighted bound is computed by the script of the Q11OF
+the chiral weight is not supplied by any source. The capacity-weighted bound ($\theta_{\max}\cdot q=2.114, 2.122, 2.118$ at $n_3^{\rm obs}=2$ for $q=61,101,151$; a non-exact,
+$q$-stable but not $q$-invariant quantity) is not computed by `frontier_exact.py`: it is computed by the script of the Q11OF
 repository.
 
 ## Keywords

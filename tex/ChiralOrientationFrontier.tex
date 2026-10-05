@@ -116,12 +116,18 @@ used only in~\cite{Beau2026aog}; supplied by no source), that $\sigma_L$ cannot 
       \rhochi = \frac{\langle \sigma_L\,\dac\rangle_{\partial^+}}{\langle |\dac|\rangle_{\partial^+}}\neq 0.
     \end{equation}
 
-    Both quantities are exact: with the generators $\{\pm X,\pm Y\}$ of~\cite{Beau2026a16}, the raw average and the
-    symmetrised anti-bias control vanish by the $\varphi$-pairing above, and on each shell $\thmax\cdot q$ is $2\pi$
-    times a rational number independent of $q$ for $q\ge 61$ ($\tfrac13,\tfrac59,\tfrac23,\ldots$ for
-    $m=1,2,3,\ldots$; the script of~\cite{Beau2026q11of}, which weights shells by the capacity increment, gives
+    With the generators $\{\pm X,\pm Y\}$ of~\cite{Beau2026a16}, the raw average and the symmetrised anti-bias control
+    vanish by the $\varphi$-pairing above.
+    The per-shell values of the bound are exact: on the shells $m=1,\dots,6$, $\thmax\cdot q$ is $2\pi$ times the rational
+    $\tfrac13,\tfrac59,\tfrac23,\tfrac{10}{11},\tfrac{119}{109},\tfrac{239}{185}$, which
+    \texttt{code/frontier\_exact.py} recomputes in $H_3(\mathbb{Z}/q\mathbb{Z})$ and finds equal to the $H_3(\mathbb{Z})$
+    values for $q\in\{61,101,151,211,307\}$.
+    This independence of $q$ is verified for $m\le 6$ and for these five primes only (the ball of radius $7$ embeds for
+    $q\ge 61$); for larger $m$ the shells wrap and nothing is claimed.
+    The capacity-weighted bound is a different, non-exact quantity, which \texttt{code/frontier\_exact.py} does not compute:
+    the script of~\cite{Beau2026q11of}, which weights shells by the capacity increment, gives
     $\thmax\cdot q=2.114,\ 2.122,\ 2.118$ at $n_3^{\mathrm{obs}}=2$ for $q=61,101,151$, stable to $0.4\,\%$, not
-    invariant), as recomputed by \texttt{code/frontier\_exact.py}.
+    invariant.
     This concerns the bound, and says nothing about $\sigma_L$.
     The present note derives $\sigma_L$ from the inherited lift and thereby converts the bound into a signal under a
     precisely named phase hypothesis.
@@ -311,7 +317,7 @@ It is not an absolute calibration of the later spectral split.
       The overlap $\rhochi=1$ holds by the definition $\sigma_L=\sgn\dac$ on the support (it is not a measured
       quantity); the support fraction of the cocycle on $\partial^+S_m$ is
       $\tfrac13,\tfrac49,\tfrac{11}{27},\tfrac{24}{55},\tfrac{49}{109},\tfrac{84}{185}$ for $m=1,\dots,6$,
-      independent of $q\ge 61$ (exact; \texttt{code/frontier\_exact.py}).\end{status}
+      independent of $q$ for $m\le 6$ and $q\in\{61,101,151,211,307\}$ (exact; verified by \texttt{code/frontier\_exact.py} on this domain only).\end{status}
 
     The reading is deliberately conservative: the exact frontier computation validates the backend and the bound; the analysis of the
     inherited lift, and only that, converts the bound into a signal.

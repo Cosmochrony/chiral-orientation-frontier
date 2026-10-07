@@ -5,7 +5,7 @@ This repository contains the source of the Cosmochrony fermionic-matter paper
 
 ## Status
 
-Working paper, v1.1 (local candidate, not deposited; last deposited version 1.0). DOI: [10.5281/zenodo.20735907](https://doi.org/10.5281/zenodo.20735907)
+Working paper, v1.1. DOI: [10.5281/zenodo.20735907](https://doi.org/10.5281/zenodo.20735907)
 
 ## Abstract
 
